@@ -2,14 +2,12 @@ import axios from 'axios'
 
 // axios await async kullanarak API üzerinden verileri çekmek;
 
+ const getData = async (number) =>  {
+    const {data : user1} = await axios("https://jsonplaceholder.typicode.com/users/" + number); 
+    console.log(user1)
 
-const {data: res} = await axios (
-`https://jsonplaceholder.typicode.com/users/${Number}`
-)
- const {data: res1} = await axios (
-        `https://jsonplaceholder.typicode.com/posts?id=${Number}`
-)
-console.log("res",res);
-console.log("res1",res1);
-}
+    const {data : posts} = await axios("https://jsonplaceholder.typicode.com/posts/" + number)
+    console.log("posts:" , posts)
+};
+export default getData;
 
